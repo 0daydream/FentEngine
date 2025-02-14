@@ -10,7 +10,6 @@
 
 #include <iostream>
 
-
 void Game::init() {
     std::cout<<"Initializing..."<<std::endl;
 
