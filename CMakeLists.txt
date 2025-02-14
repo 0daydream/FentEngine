@@ -19,7 +19,9 @@ add_executable(FentEngine src/main.cpp
         src/Engine/Entity/Entity.cpp
         src/Engine/Entity/Entity.h
         src/Engine/Asset/AssetManager.cpp
-        src/Engine/Asset/AssetManager.h)
+        src/Engine/Asset/AssetManager.h
+        src/Engine/TaskQueue/TaskQueue.cpp
+        src/Engine/TaskQueue/TaskQueue.h)
 
 find_package(glfw3 CONFIG REQUIRED)
 
