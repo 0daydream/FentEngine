@@ -23,7 +23,7 @@ namespace FentEngine {
         ~TaskQueue() = default;
 
         bool isEmpty() const;
-        void enqueueTask(const std::function<void()>& task);
+        void enqueueTask(const Task& task);
         void executeNextTask();
         void executeAllTasks();
     };

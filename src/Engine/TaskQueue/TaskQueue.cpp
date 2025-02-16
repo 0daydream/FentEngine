@@ -10,7 +10,7 @@ bool FentEngine::TaskQueue::isEmpty() const {
     return m_queue.empty();
 }
 
-void FentEngine::TaskQueue::enqueueTask(const std::function<void()>& task) {
+void FentEngine::TaskQueue::enqueueTask(const Task& task) {
     std::unique_lock<std::mutex> lock(m_mutex);
     m_queue.push(task);
     m_mutex.unlock();
@@ -30,10 +30,12 @@ void FentEngine::TaskQueue::executeNextTask() {
 }
 
 void FentEngine::TaskQueue::executeAllTasks() {
+    std::unique_lock<std::mutex> lock(m_mutex);
+
     while (!isEmpty()) {
         Task task = m_queue.front();
         m_queue.pop();
-        executeNextTask();
+        task();
     };
     m_mutex.unlock();
 }
