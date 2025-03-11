@@ -24,6 +24,8 @@ add_executable(FentEngine src/main.cpp
         src/Engine/TaskQueue/TaskQueue.h
         src/Engine/ThreadPool/ThreadPool.cpp
         src/Engine/ThreadPool/ThreadPool.hpp
+        src/Engine/Sound/Sound.cpp
+        src/Engine/Sound/Sound.hpp
 )
 
 find_package(glfw3 CONFIG REQUIRED)
