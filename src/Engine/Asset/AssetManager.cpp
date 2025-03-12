@@ -5,7 +5,7 @@
 #include <iostream>
 #include "AssetManager.h"
 
-AssetManager::~AssetManager() {
+FentEngine::AssetManager::~AssetManager() {
     if (!m_textures.empty()) {
         std::cout << "AssetManager::~AssetManager: Unloading textures...\n";
         for (const auto& it : m_textures) {
@@ -30,11 +30,11 @@ AssetManager::~AssetManager() {
 }
 
 
-bool AssetManager::checkExistingTexture(const std::string& fileName) const {
+bool FentEngine::AssetManager::checkExistingTexture(const std::string& fileName) const {
     return m_textures.contains(fileName);
 }
 
-void AssetManager::loadTexture(const std::string& fileName) {
+void FentEngine::AssetManager::loadTexture(const std::string& fileName) {
     if (!checkExistingTexture(fileName)) {
         m_assetsPath = std::filesystem::current_path().string() + TEXTURES_PATH;
 
@@ -60,7 +60,7 @@ void AssetManager::loadTexture(const std::string& fileName) {
     }
 }
 
-void AssetManager::unloadTexture(const std::string& fileName) const {
+void FentEngine::AssetManager::unloadTexture(const std::string& fileName) const {
     if (checkExistingTexture(fileName)) {
         UnloadTexture(m_textures.at(fileName));
     }
@@ -69,12 +69,12 @@ void AssetManager::unloadTexture(const std::string& fileName) const {
     }
 }
 
-bool AssetManager::checkExistingFont(const std::string& fileName) const {
+bool FentEngine::AssetManager::checkExistingFont(const std::string& fileName) const {
     ;
     return m_fonts.contains(fileName);
 }
 
-void AssetManager::loadFont(const std::string& fileName) {
+void FentEngine::AssetManager::loadFont(const std::string& fileName) {
     if (!checkExistingFont(fileName)) {
         m_assetsPath = std::filesystem::current_path().string() + FONTS_PATH;
 
@@ -92,7 +92,7 @@ void AssetManager::loadFont(const std::string& fileName) {
     }
 }
 
-void AssetManager::unloadFont(const std::string& fileName) const {
+void FentEngine::AssetManager::unloadFont(const std::string& fileName) const {
     if (checkExistingFont(fileName)) {
         UnloadFont(m_fonts.at(fileName));
     }
@@ -102,11 +102,11 @@ void AssetManager::unloadFont(const std::string& fileName) const {
 }
 
 
-bool AssetManager::checkExistingSound(const std::string& fileName) const {
+bool FentEngine::AssetManager::checkExistingSound(const std::string& fileName) const {
     return m_sounds.contains(fileName);
 }
 
-void AssetManager::loadSound(const std::string& fileName) {
+void FentEngine::AssetManager::loadSound(const std::string& fileName) {
     if (!checkExistingSound(fileName)) {
         m_assetsPath = std::filesystem::current_path().string() + SOUNDS_PATH;
 
@@ -125,7 +125,7 @@ void AssetManager::loadSound(const std::string& fileName) {
     }
 }
 
-void AssetManager::unloadSound(const std::string& fileName) const {
+void FentEngine::AssetManager::unloadSound(const std::string& fileName) const {
     if (checkExistingSound(fileName)) {
         UnloadSound(m_sounds.at(fileName));
         std::cout << "AssetManager::unloadSound::checkExistingSound: Sound unloaded -> " << fileName << "\n";
@@ -136,7 +136,7 @@ void AssetManager::unloadSound(const std::string& fileName) const {
 }
 
 
-Texture2D AssetManager::getTexture(const std::string& fileName) {
+Texture2D FentEngine::AssetManager::getTexture(const std::string& fileName) {
     auto it = m_textures.find(fileName);
 
     if (it != m_textures.end()) {
@@ -146,7 +146,7 @@ Texture2D AssetManager::getTexture(const std::string& fileName) {
     return {};
 }
 
-Font AssetManager::getFont(const std::string& fileName) {
+Font FentEngine::AssetManager::getFont(const std::string& fileName) {
     auto it = m_fonts.find(fileName);
 
     if (it != m_fonts.end()) {
@@ -156,7 +156,7 @@ Font AssetManager::getFont(const std::string& fileName) {
     return {};
 }
 
-Sound AssetManager::getSound(const std::string& fileName) {
+Sound FentEngine::AssetManager::getSound(const std::string& fileName) {
     auto it = m_sounds.find(fileName);
 
     if (it != m_sounds.end()) {
@@ -166,7 +166,7 @@ Sound AssetManager::getSound(const std::string& fileName) {
     return {};
 }
 
-AssetManager& AssetManager::getInstance() {
-    static AssetManager instance;
+FentEngine::AssetManager& FentEngine::AssetManager::getInstance() {
+    static FentEngine::AssetManager instance;
     return instance;
 }

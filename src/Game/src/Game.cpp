@@ -13,7 +13,7 @@
 void Game::init() {
     std::cout<<"Initializing..."<<std::endl;
 
-    m_sceneManager->addScene("menu", std::make_shared<LoadingScene>());
+    m_sceneManager->addScene("menu", std::make_shared<LoadingScene>(m_assetManager));
     m_sceneManager->switchScene("menu");
 }
 

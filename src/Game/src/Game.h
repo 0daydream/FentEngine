@@ -6,6 +6,7 @@
 #define GAME_H
 
 // Engine Includes
+#include "../../Engine/Asset/AssetManager.h"
 #include "../../Engine/Scene/SceneManager.h"
 
 #include "Scenes/LoadingScene.h"
@@ -16,6 +17,7 @@ private:
     FentEngine::Renderer m_renderer;
 
     std::unique_ptr<FentEngine::SceneManager> m_sceneManager = std::make_unique<FentEngine::SceneManager>();
+    std::unique_ptr<FentEngine::AssetManager> m_assetManager = std::make_unique<FentEngine::AssetManager>();
 
 public:
     Game() = default;

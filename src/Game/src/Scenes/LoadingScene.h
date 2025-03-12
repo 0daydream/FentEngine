@@ -6,6 +6,7 @@
 #define LOADINGSCENE_H
 
 // Engine Includes
+#include "../../../Engine/Asset/AssetManager.h"
 #include "../../../Engine/Scene/Scene.h"
 #include "../../../Engine/Renderer/Renderer.h"
 
@@ -14,11 +15,12 @@
 
 class LoadingScene : public FentEngine::Scene {
 private:
-    Rectangle rect;
-    int speed;
+    std::unique_ptr<FentEngine::AssetManager> m_assetManager;
+
+    Sound m_mainMenuMusic;
 
 public:
-    LoadingScene();
+    explicit LoadingScene(std::unique_ptr<FentEngine::AssetManager>& assetManager);
     ~LoadingScene() override = default;
 
     void initScene() override;

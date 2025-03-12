@@ -24,11 +24,13 @@ add_executable(FentEngine src/main.cpp
         src/Engine/TaskQueue/TaskQueue.h
         src/Engine/ThreadPool/ThreadPool.cpp
         src/Engine/ThreadPool/ThreadPool.hpp
-        src/Engine/Sound/Sound.cpp
-        src/Engine/Sound/Sound.hpp
 )
 
 find_package(glfw3 CONFIG REQUIRED)
 
 find_package(raylib CONFIG REQUIRED)
 target_link_libraries(FentEngine PRIVATE raylib glfw)
+
+set_target_properties(FentEngine PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}"
+)

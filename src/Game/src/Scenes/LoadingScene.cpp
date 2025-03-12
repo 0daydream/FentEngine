@@ -6,17 +6,14 @@
 
 #include <iostream>
 
-LoadingScene::LoadingScene() {
-    speed = 500;
-
-    rect.height = 50;
-    rect.width = 50;
-    rect.x = 20;
-    rect.y = 20;
+LoadingScene::LoadingScene(std::unique_ptr<FentEngine::AssetManager>& assetManager) : m_assetManager(std::move(assetManager)) {
 }
 
 
+
 void LoadingScene::initScene() {
+    m_assetManager->loadSound("main_menu_theme.mp3");
+    PlaySound(m_mainMenuMusic);
 }
 
 void LoadingScene::cleanupScene() {
