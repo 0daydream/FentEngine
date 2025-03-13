@@ -10,10 +10,14 @@
 
 #include <iostream>
 
+Game::Game() {
+    m_assetManager = std::make_shared<FentEngine::AssetManager>();
+    m_sceneManager->addScene("menu", std::make_shared<LoadingScene>(m_assetManager));
+}
+
 void Game::init() {
     std::cout<<"Initializing..."<<std::endl;
 
-    m_sceneManager->addScene("menu", std::make_shared<LoadingScene>(m_assetManager));
     m_sceneManager->switchScene("menu");
 }
 

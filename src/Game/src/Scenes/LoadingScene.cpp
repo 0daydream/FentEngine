@@ -6,14 +6,14 @@
 
 #include <iostream>
 
-LoadingScene::LoadingScene(std::unique_ptr<FentEngine::AssetManager>& assetManager) : m_assetManager(std::move(assetManager)) {
-}
-
+LoadingScene::LoadingScene(const std::shared_ptr<FentEngine::AssetManager>& assetManager) : m_assetManager(assetManager) {}
 
 
 void LoadingScene::initScene() {
+
     m_assetManager->loadSound("main_menu_theme.mp3");
     PlaySound(m_mainMenuMusic);
+    m_assetManager->test();
 }
 
 void LoadingScene::cleanupScene() {

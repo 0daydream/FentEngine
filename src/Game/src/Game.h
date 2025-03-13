@@ -17,10 +17,11 @@ private:
     FentEngine::Renderer m_renderer;
 
     std::unique_ptr<FentEngine::SceneManager> m_sceneManager = std::make_unique<FentEngine::SceneManager>();
-    std::unique_ptr<FentEngine::AssetManager> m_assetManager = std::make_unique<FentEngine::AssetManager>();
+    // std::shared_ptr<FentEngine::AssetManager> m_assetManager = std::shared_ptr<FentEngine::AssetManager>();
+    std::shared_ptr<FentEngine::AssetManager> m_assetManager;
 
 public:
-    Game() = default;
+    Game();
     ~Game() = default;
 
     void init();

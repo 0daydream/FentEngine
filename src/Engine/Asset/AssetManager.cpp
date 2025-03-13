@@ -108,7 +108,7 @@ bool FentEngine::AssetManager::checkExistingSound(const std::string& fileName) c
 
 void FentEngine::AssetManager::loadSound(const std::string& fileName) {
     if (!checkExistingSound(fileName)) {
-        m_assetsPath = std::filesystem::current_path().string() + SOUNDS_PATH;
+        m_assetsPath = std::filesystem::current_path().string() + SOUNDS_PATH + fileName;
 
         Sound tempSound = LoadSound(m_assetsPath.c_str());
         if (!IsSoundValid(tempSound)) {
@@ -169,4 +169,8 @@ Sound FentEngine::AssetManager::getSound(const std::string& fileName) {
 FentEngine::AssetManager& FentEngine::AssetManager::getInstance() {
     static FentEngine::AssetManager instance;
     return instance;
+}
+
+void FentEngine::AssetManager::test() const {
+    std::cout << "AssetManager::test()\n";
 }

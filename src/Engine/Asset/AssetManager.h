@@ -49,6 +49,8 @@ namespace FentEngine {
         Font getFont(const std::string& fileName);
         Sound getSound(const std::string& fileName);
         static AssetManager& getInstance();
+
+        void test() const;
     };
 }
 

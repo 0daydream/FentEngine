@@ -15,12 +15,13 @@
 
 class LoadingScene : public FentEngine::Scene {
 private:
-    std::unique_ptr<FentEngine::AssetManager> m_assetManager;
+    std::shared_ptr<FentEngine::AssetManager> m_assetManager;
 
+    // Make struct out of it!!!
     Sound m_mainMenuMusic;
 
 public:
-    explicit LoadingScene(std::unique_ptr<FentEngine::AssetManager>& assetManager);
+    explicit LoadingScene(const std::shared_ptr<FentEngine::AssetManager>& assetManager);
     ~LoadingScene() override = default;
 
     void initScene() override;
