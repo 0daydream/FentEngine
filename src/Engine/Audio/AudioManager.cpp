@@ -11,6 +11,7 @@ void FentEngine::AudioManager::playSound(const std::string& fileName, const floa
     if (m_assetManager->checkExistingSound(fileName)) {
         const Sound sound = m_assetManager->getSound(fileName);
         SetSoundVolume(sound, volume);
+        PlaySound(sound);
     }
 }
 
@@ -28,7 +29,6 @@ void FentEngine::AudioManager::stopAllSounds() const {
     }
 
     const auto& hashmap = m_assetManager->getSoundHashmap();
-
     if (hashmap.empty()) {
         std::cerr << "AudioManager::stopAllSounds No sounds to stop!\n";
         return;
@@ -39,6 +39,40 @@ void FentEngine::AudioManager::stopAllSounds() const {
     }
 }
 
-void FentEngine::AudioManager::playMusic(const std::string& fileName, float volume) {
-    m_assetManager->loadMusic(fileName);
+void FentEngine::AudioManager::playMusic(const std::string& fileName, float volume) const {
+    if (m_assetManager->checkExistingMusic(fileName)) {
+        Music music = m_assetManager->loadMusic(fileName);
+        SetMusicVolume(music, volume);
+        PlayMusicStream(music);
+    }
 }
+
+void FentEngine::AudioManager::stopMusic(const std::string& fileName) const {
+    if (m_assetManager->checkExistingMusic(fileName)) {
+        const Music music = m_assetManager->loadMusic(fileName);
+        StopMusicStream(music);
+    }
+}
+
+void FentEngine::AudioManager::pauseMusic() {
+    if (!m_assetManager) {
+        std::cerr << "AudioManager::stopAllSounds: m_assetManager is null!\n";
+        return;
+    }
+
+    const auto& hashmap = m_assetManager->getMusicHashmap();
+    if (hashmap.empty()) {
+        std::cerr << "AudioManager::stopAllSounds No sounds to stop!\n";
+        return;
+    }
+
+    for (const auto& [key, music] : hashmap) {
+        PauseMusicStream(music);
+    }
+}
+
+void FentEngine::AudioManager::resumeMusic() {
+
+}
+
+

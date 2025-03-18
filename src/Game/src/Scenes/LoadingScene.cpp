@@ -14,7 +14,6 @@ void LoadingScene::initScene() {
     InitAudioDevice();
 
     m_mainMenuMusic = m_assetManager->loadMusic("marabu.mp3");
-    m_audioManager->stopAllSounds();
     PlayMusicStream(m_mainMenuMusic);
 }
 

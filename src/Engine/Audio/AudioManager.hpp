@@ -24,9 +24,9 @@ namespace FentEngine {
         [[maybe_unused]]void stopAllSounds() const;
 
         // Music
-        void playMusic(const std::string& fileName, float volume = 1.0f);
+        void playMusic(const std::string& fileName, float volume = 1.0f) const;
         void loopMusic(const std::string& fileName, float volume = 1.0f);
-        void stopMusic(const std::string& fileName = {});
+        void stopMusic(const std::string& fileName = {}) const;
         void pauseMusic();
         void resumeMusic();
 

@@ -37,6 +37,7 @@ namespace FentEngine {
         bool checkExistingTexture(const std::string& fileName) const;
         Texture2D loadTexture(const std::string& fileName);
         void unloadTexture(const std::string& fileName) const;
+        bool isTextureMapEmpty() const;
 
         // Font Assets
         bool checkExistingFont(const std::string& fileName) const;
