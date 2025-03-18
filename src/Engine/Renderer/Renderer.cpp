@@ -8,7 +8,7 @@
 #include <memory>
 
 void FentEngine::Renderer::renderTexture(const std::string& fileName, const VapeTransform& transform, Color tint) {
-    Texture2D texture = AssetManager::getInstance().getTexture(fileName);
+    // Texture2D texture = AssetManager::getInstance().getTexture(fileName);
 }
 
 void FentEngine::Renderer::voidRenderTextureRec(const std::string& fileName, const VapeTransform& transform, Color tint) {

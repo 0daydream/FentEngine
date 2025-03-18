@@ -20,14 +20,16 @@ add_executable(FentEngine src/main.cpp
         src/Engine/Entity/Entity.h
         src/Engine/Asset/AssetManager.cpp
         src/Engine/Asset/AssetManager.h
+        src/Engine/Audio/AudioManager.cpp
+        src/Engine/Audio/AudioManager.hpp
         src/Engine/TaskQueue/TaskQueue.cpp
         src/Engine/TaskQueue/TaskQueue.h
         src/Engine/ThreadPool/ThreadPool.cpp
         src/Engine/ThreadPool/ThreadPool.hpp
 )
 
+# IMPORTANT: Use vcpkg to use these libraries :3
 find_package(glfw3 CONFIG REQUIRED)
-
 find_package(raylib CONFIG REQUIRED)
 target_link_libraries(FentEngine PRIVATE raylib glfw)
 

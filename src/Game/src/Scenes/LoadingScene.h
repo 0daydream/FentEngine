@@ -7,6 +7,7 @@
 
 // Engine Includes
 #include "../../../Engine/Asset/AssetManager.h"
+#include "../../../Engine/Audio/AudioManager.hpp"
 #include "../../../Engine/Scene/Scene.h"
 #include "../../../Engine/Renderer/Renderer.h"
 
@@ -16,12 +17,16 @@
 class LoadingScene : public FentEngine::Scene {
 private:
     std::shared_ptr<FentEngine::AssetManager> m_assetManager;
+    std::shared_ptr<FentEngine::AudioManager> m_audioManager;
 
     // Make struct out of it!!!
-    Sound m_mainMenuMusic;
+    Music m_mainMenuMusic;
 
 public:
-    explicit LoadingScene(const std::shared_ptr<FentEngine::AssetManager>& assetManager);
+    explicit LoadingScene(
+        const std::shared_ptr<FentEngine::AssetManager>& assetManager,
+        const std::shared_ptr<FentEngine::AudioManager>& audioManager
+        );
     ~LoadingScene() override = default;
 
     void initScene() override;

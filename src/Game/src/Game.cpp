@@ -11,8 +11,11 @@
 #include <iostream>
 
 Game::Game() {
+    //Initialize instances
     m_assetManager = std::make_shared<FentEngine::AssetManager>();
-    m_sceneManager->addScene("menu", std::make_shared<LoadingScene>(m_assetManager));
+    m_audioManager = std::make_shared<FentEngine::AudioManager>(m_assetManager);
+
+    m_sceneManager->addScene("menu", std::make_shared<LoadingScene>(m_assetManager, m_audioManager));
 }
 
 void Game::init() {

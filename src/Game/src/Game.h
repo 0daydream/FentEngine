@@ -8,6 +8,7 @@
 // Engine Includes
 #include "../../Engine/Asset/AssetManager.h"
 #include "../../Engine/Scene/SceneManager.h"
+#include "../../Engine/Audio/AudioManager.hpp"
 
 #include "Scenes/LoadingScene.h"
 #include "raylib.h"
@@ -17,8 +18,8 @@ private:
     FentEngine::Renderer m_renderer;
 
     std::unique_ptr<FentEngine::SceneManager> m_sceneManager = std::make_unique<FentEngine::SceneManager>();
-    // std::shared_ptr<FentEngine::AssetManager> m_assetManager = std::shared_ptr<FentEngine::AssetManager>();
     std::shared_ptr<FentEngine::AssetManager> m_assetManager;
+    std::shared_ptr<FentEngine::AudioManager> m_audioManager;
 
 public:
     Game();

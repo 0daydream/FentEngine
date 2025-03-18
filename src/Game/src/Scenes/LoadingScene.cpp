@@ -6,20 +6,23 @@
 
 #include <iostream>
 
-LoadingScene::LoadingScene(const std::shared_ptr<FentEngine::AssetManager>& assetManager) : m_assetManager(assetManager) {}
+LoadingScene::LoadingScene(const std::shared_ptr<FentEngine::AssetManager>& assetManager, const std::shared_ptr<FentEngine::AudioManager>& audioManager)
+: m_assetManager(assetManager), m_audioManager(audioManager)  {}
 
 
 void LoadingScene::initScene() {
+    InitAudioDevice();
 
-    m_assetManager->loadSound("main_menu_theme.mp3");
-    PlaySound(m_mainMenuMusic);
-    m_assetManager->test();
+    m_mainMenuMusic = m_assetManager->loadMusic("marabu.mp3");
+    m_audioManager->stopAllSounds();
+    PlayMusicStream(m_mainMenuMusic);
 }
 
 void LoadingScene::cleanupScene() {
 }
 
 void LoadingScene::update(float deltaTime) {
+    UpdateMusicStream(m_mainMenuMusic);
 }
 
 void LoadingScene::render(FentEngine::Renderer& renderer) {
