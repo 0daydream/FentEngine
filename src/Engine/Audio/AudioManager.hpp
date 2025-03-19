@@ -8,11 +8,16 @@
 #include "../Asset/AssetManager.h"
 
 #include <iostream>
+#include <vector>
+
+#include "../Structs.h"
 
 namespace FentEngine {
     class AudioManager {
     private:
         std::shared_ptr<FentEngine::AssetManager> m_assetManager;
+        std::vector<FentSound> m_soundVec;
+        std::vector<FentSound> m_musicVec;
 
     public:
         explicit AudioManager(const std::shared_ptr<FentEngine::AssetManager>& assetManager);
@@ -30,12 +35,14 @@ namespace FentEngine {
         void pauseMusic() const;
         void resumeMusic() const;
 
-        // TODO: Set global volume based on settings
+        // TODO: Set volume based on settings
         // Add Settings
         void setSoundVolume(float volume = 1.0f) const;
         void setMusicVolume(float volume = 1.0f) const;
         void setGlobalVolume(float volume = 1.0f) const;
         float getGlobalVolume() const;
+        float getSoundVolume() const;
+        float getMusicVolume() const;
 
     };
 }

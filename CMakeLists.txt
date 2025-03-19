@@ -26,6 +26,8 @@ add_executable(FentEngine src/main.cpp
         src/Engine/TaskQueue/TaskQueue.h
         src/Engine/ThreadPool/ThreadPool.cpp
         src/Engine/ThreadPool/ThreadPool.hpp
+        src/Engine/Settings/Settings.cpp
+        src/Engine/Settings/Settings.hpp
 )
 
 # IMPORTANT: Use vcpkg to use these libraries :3

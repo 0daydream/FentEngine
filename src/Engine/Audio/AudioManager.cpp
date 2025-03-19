@@ -41,7 +41,7 @@ void FentEngine::AudioManager::stopAllSounds() const {
 
 void FentEngine::AudioManager::playMusic(const std::string& fileName, const float volume) const {
     if (m_assetManager->checkExistingMusic(fileName)) {
-        Music music = m_assetManager->loadMusic(fileName);
+        const Music music = m_assetManager->loadMusic(fileName);
         SetMusicVolume(music, volume);
         PlayMusicStream(music);
     }
@@ -49,7 +49,7 @@ void FentEngine::AudioManager::playMusic(const std::string& fileName, const floa
 
 void FentEngine::AudioManager::loopMusic(const std::string& fileName, const float volume) const {
     if (m_assetManager->checkExistingMusic(fileName)) {
-        Music music = m_assetManager->loadMusic(fileName);
+        const Music music = m_assetManager->loadMusic(fileName);
         SetMusicVolume(music, volume);
         PlayMusicStream(music);
     }
@@ -115,6 +115,14 @@ void FentEngine::AudioManager::setGlobalVolume(const float volume) const {
     setMusicVolume(volume);
 }
 
-float FentEngine::AudioManager::getGlobalVolume() const {
-
+float FentEngine::AudioManager::getSoundVolume() const {
+    return 1.0f;
 }
+
+float FentEngine::AudioManager::getMusicVolume() const {
+    return 1.0f;
+};
+
+float FentEngine::AudioManager::getGlobalVolume() const {
+    return 1.0f;
+};

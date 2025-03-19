@@ -49,4 +49,16 @@ typedef struct VapeButtonTexture {
     Color color = WHITE;
 } VapeButtonTexture;
 
+typedef struct FentSound {
+    std::string fileName;
+    Sound sound;
+    float volume = 1.0f;
+} FentSound;
+
+typedef struct FentMusic {
+    std::string fileName;
+    Music music;
+    float volume = 1.0f;
+} FentMusic;
+
 #endif //STRUCTS_H
