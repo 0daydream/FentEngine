@@ -25,12 +25,16 @@ namespace FentEngine {
 
         // Music
         void playMusic(const std::string& fileName, float volume = 1.0f) const;
-        void loopMusic(const std::string& fileName, float volume = 1.0f);
+        void loopMusic(const std::string& fileName, float volume = 1.0f) const;
         void stopMusic(const std::string& fileName = {}) const;
-        void pauseMusic();
-        void resumeMusic();
+        void pauseMusic() const;
+        void resumeMusic() const;
 
-        void setGlobalVolume(float volume = 1.0f);
+        // TODO: Set global volume based on settings
+        // Add Settings
+        void setSoundVolume(float volume = 1.0f) const;
+        void setMusicVolume(float volume = 1.0f) const;
+        void setGlobalVolume(float volume = 1.0f) const;
         float getGlobalVolume() const;
 
     };

@@ -13,7 +13,7 @@ LoadingScene::LoadingScene(const std::shared_ptr<FentEngine::AssetManager>& asse
 void LoadingScene::initScene() {
     InitAudioDevice();
 
-    m_mainMenuMusic = m_assetManager->loadMusic("marabu.mp3");
+    m_mainMenuMusic = m_assetManager->loadMusic("brainrot.mp3");
     PlayMusicStream(m_mainMenuMusic);
 }
 
